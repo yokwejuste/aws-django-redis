@@ -1,4 +1,8 @@
+boto==2.49.0
 celery==5.4.0
-django==5.0.7
+django==4.2.15
+fabric==3.2.2
+gunicorn==22.0.0
+prettytable==3.10.2
 python-dotenv==1.0.1
 redis==5.0.8

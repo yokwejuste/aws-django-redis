@@ -6,11 +6,12 @@ from celery import Celery
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_schedular.settings')
 
-app = Celery('my_schedular')
+app = Celery('my_schedular', broker=os.getenv("CELERY_BROKER_URL"))
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.autodiscover_tasks()
+
 
 @app.task(bind=True)
 def debug_task(self):
