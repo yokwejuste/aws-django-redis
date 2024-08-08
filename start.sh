@@ -1,7 +1,4 @@
 #!/bin/bash
 
-/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord-web.conf &
-
-/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord-celery.conf &
-
-wait
+export $(cat ~/aws-django-redis/.env | xargs)
+exec gunicorn my_schedular.wsgi:application --bind 0.0.0.0:8000
