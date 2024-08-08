@@ -44,7 +44,6 @@ jobs:
             cd aws-django-redis/
             source venv/bin/activate
             pip install -r requirements.txt
-            python manage.py migrate
             sudo supervisorctl reread
             sudo supervisorctl update
             sudo supervisorctl restart all
